@@ -23,6 +23,12 @@
                     <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
                         {{ __('Kategori') }}
                     </x-nav-link>
+
+                    @if(auth()->user()->isAdmin())
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
+                        {{ __('Manajemen User') }}
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -88,6 +94,12 @@
                 <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
                     {{ __('Kategori') }}
                 </x-responsive-nav-link>
+
+                @if(auth()->user()->isAdmin())
+                <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
+                    {{ __('Manajemen User') }}
+                </x-responsive-nav-link>
+                @endif
 
             </div>
 

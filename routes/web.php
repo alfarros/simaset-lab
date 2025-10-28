@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MaintenanceController; // Jangan lupa use-nya!
 use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -54,6 +55,8 @@ Route::middleware('auth')->group(function () {
         Route::patch('/maintenance/{log}', [MaintenanceController::class, 'update'])->name('maintenance.update');
         Route::post('/maintenance/{log}/complete', [MaintenanceController::class, 'complete'])->name('maintenance.complete');
         Route::post('/maintenance/{log}/start', [MaintenanceController::class, 'start'])->name('maintenance.start');
+
+        Route::resource('users', UserController::class);
     });
 });
 
